@@ -16,7 +16,7 @@ var isDevelopment = (process.env.ENVIRONMENT !== "production");
 
 
 gulp.task('stylesheet', ['sprites'], function () {
-  return gulp.src('app/css/main.scss')
+  return gulp.src('app/scss/style.scss')
     .pipe($.if(isDevelopment, $.sourcemaps.init()))
     .pipe($.sass({
       outputStyle: 'nested', // libsass doesn't support expanded yet
@@ -59,7 +59,7 @@ gulp.task('sprites', function() {
 
     // Pipe CSS stream
     spriteData.css
-      .pipe(gulp.dest('app/css/sprites'));
+      .pipe(gulp.dest('app/scss/sprites'));
   }
 });
 
@@ -101,7 +101,7 @@ gulp.task('html', ['javascript', 'stylesheet'], function () {
   return gulp.src('app/*.html')
     .pipe(assets)
     .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.csso()))
+    .pipe($.if('*.scss', $.csso()))
     .pipe(assets.restore())
     .pipe($.useref())
     .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
@@ -160,7 +160,7 @@ gulp.task('serve', ['stylesheet', 'javascript', 'fonts'], function () {
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
-  gulp.watch(['app/css/**/*.scss', '!app/css/sprites/*.scss'], ['stylesheet']);
+  gulp.watch(['app/scss/**/*.scss', '!app/css/sprites/*.scss'], ['stylesheet']);
   gulp.watch('app/js/**/*.{js,jsx}', ['javascript']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
@@ -180,7 +180,7 @@ gulp.task('serve:dist', function () {
 gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
 
-  gulp.src('app/css/*.scss')
+  gulp.src('app/scss/*.scss')
     .pipe(wiredep({
       ignorePath: /^(\.\.\/)+/
     }))
