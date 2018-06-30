@@ -1,0 +1,94 @@
+// **
+// @NOTIFICATIONS
+// ------------------------
+
+.notif_top {
+    color: $white;
+    padding: 0 20px;
+    padding-left: 80px;
+    position: fixed;
+    top: $header-height;
+    height: 0px;
+    line-height: 60px;
+    left: 0px;
+    right: 0;
+    z-index: 1003;
+    overflow: hidden;
+    @include transition(height, 0.4s, ease);
+
+    span {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: $header-height;
+        text-align: center;
+        @include transition;
+        @include delay(all, 0.5s, ease);
+
+        &::before {
+            @include icons-g($notif);
+            line-height: 60px;
+            @include font-size(0);
+            @include transition;
+            @include delay(all, 0.5s, ease);
+        }
+
+        i {
+            @include hide-text;
+        }
+    }
+
+    p {
+        margin: 0;
+        @include opacity(0);
+        text-transform: uppercase;
+        @include transition;
+        @include delay(all, 0.5s, ease);
+        @include font-size(0);
+        position: absolute;
+        left: 80px;
+        right: 0;
+        top: 0;
+    }
+}
+
+.notif_top.success {
+    background-color: $green;
+
+    span {
+        background-color: darken($green, 5%);
+    }
+}
+
+.notif_top.error {
+    background-color: $red;
+
+    span {
+        background-color: darken($red, 5%);
+    }
+}
+
+.notif_top.notif_open {    height: $header-height;
+
+    span::before {
+        @include font-size(2.2);
+        @include delay(all, 0, ease);
+    }
+}
+
+.notif_top.notif_open.success {
+    p.success_txt {
+        @include opacity(1);
+        @include font-size(0.9);
+        @include delay(all, 0, ease);
+    }
+}
+
+.notif_top.notif_open.error {
+    p.error_txt {
+        @include opacity(1);
+        @include font-size(0.9);
+        @include delay(all, 0, ease);
+    }
+}

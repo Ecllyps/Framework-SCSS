@@ -1,0 +1,33 @@
+/* =====================================================================================================================
+//----- @LOADER
+======================================================================================================================*/
+
+/**
+* @LOADER
+* -------------------------
+*/
+
+div.loader{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $white;
+    z-index: 100;
+
+    div.svg{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100px;
+        height: 100px;
+        @include transform(translate(-50%, -50%));
+        animation: loader 2s linear infinite;
+    }
+
+    svg{
+        max-width: 100%;
+        min-height: 100%;
+    }
+}

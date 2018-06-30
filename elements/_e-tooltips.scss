@@ -1,0 +1,405 @@
+//**********************************************************************************************************************
+//------- TOOLTIP GEN
+//------- TOOLTIPS LIST TBODY
+//**********************************************************************************************************************
+
+/**
+ * @TOOLTIP GEN
+ * -------------------------
+ */
+.tooltip {
+	position: relative;
+}
+
+.tooltip-item {
+	cursor: pointer;
+}
+
+.tooltip-content {
+	position: absolute;
+	z-index: 1001;
+	text-align: left;
+	opacity: 0;
+	cursor: default;
+	pointer-events: none;
+}
+
+//Tooltips anims Effect 1
+.tooltip-effect-1 .tooltip-content {
+	-webkit-transform: translate3d(0,-10px,0);
+	transform: translate3d(0,-10px,0);
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.tooltip:hover .tooltip-content {
+	pointer-events: auto;
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+	transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+}
+
+//Tooltips anims Effect 2
+.tooltip-effect-2 .tooltip-content {
+	-webkit-transform: translate3d(0,10px,0);
+	transform: translate3d(0,10px,0);
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+}
+
+.tooltip:hover .tooltip-content {
+	pointer-events: auto;
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+	transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+}
+
+/* =====================================
+  @TOOLTIPS LIST TBODY
+===================================== */
+
+//Tooltips List TBODY
+.table .tbody .tooltip{
+    .tooltip-content{
+        background: $plum;
+        color: $white;
+        padding: 10px;
+        line-height: 100%;
+        @include border-radius(5px);
+        @include font-size(.9);
+        text-align: center;
+        text-transform: none;
+        line-height: 20px;
+        left: 50%;
+        bottom: 100%;
+        width: 200px;
+        margin-left: -100px;
+        z-index: 1004;
+        strong{
+            font-weight: normal;
+        }
+    }
+    .tooltip-content::after{
+        content: '';
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-top-color: $plum;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+}
+//Tooltips List Thead First
+.table .thead .tooltip.first_tooltip{
+    .tooltip-content{
+        left: calc(100% + 35px);
+        text-align: left;
+    }
+    .tooltip-content::after{
+        left: 20px;
+        margin-left: 0;
+    }
+}
+//Tooltips List Thead Last
+.table .thead .tooltip.last_tooltip{
+    .tooltip-content{
+        margin-left: -150px;
+    }
+    .tooltip-content::after{
+        margin-left: 40px;
+    }
+}
+
+/*Simple Table Ico Tooltip*/
+.simple_table .tooltip {
+    .tooltip-content {
+        background: $plum;
+        color: $white;
+        padding: 10px;
+        line-height: 100%;
+        @include border-radius(5px);
+        @include font-size(.9);
+        text-align: center;
+        text-transform: none;
+        line-height: 20px;
+        left: 50%;
+        bottom: calc(100% + 10px);
+        width: 200px;
+        margin-left: -100px;
+        z-index: 1004;
+        strong {
+            font-weight: normal;
+        }
+    }
+    .tooltip-content::after {
+        content: '';
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-top-color: $plum;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+}
+
+/*Table Top Button Tooltips*/
+.right_button_associate .tooltip {
+    .tooltip-content {
+        background: $plum;
+        color: $white;
+        padding: 10px;
+        line-height: 100%;
+        @include border-radius(5px);
+        @include font-size(.9);
+        text-align: center;
+        text-transform: none;
+        line-height: 20px;
+        left: calc(100% - 95px);
+        bottom: calc(100% + 15px);
+        width: 200px;
+        margin-left: -100px;
+        z-index: 1004;
+        strong {
+            font-weight: normal;
+        }
+    }
+    .tooltip-content::after {
+        content: '';
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-top-color: $plum;
+        border-width: 10px;
+        margin-left: 60px;
+    }
+}
+
+/*Table windows header Tooltips*/
+.top_windows-header .tooltip {
+    .tooltip-content {
+        background: $plum;
+        color: $white;
+        padding: 10px;
+        line-height: 100%;
+        @include border-radius(5px);
+        @include font-size(.9);
+        text-align: center;
+        text-transform: none;
+        line-height: 20px;
+        left: 50%;
+        bottom: calc(100% - 25px);
+        width: 200px;
+        margin-left: -100px;
+        z-index: 1004;
+        strong {
+            font-weight: normal;
+        }
+    }
+    .tooltip-content::after {
+        content: '';
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-top-color: $plum;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+}
+
+/*Table Order Prints Tooltip*/
+#order .order_detail .order_item_list .prints .tooltip {
+    .tooltip-content {
+        background: $rose;
+        color: $white;
+        padding: 10px;
+        line-height: 100%;
+        @include border-radius(5px);
+        @include font-size(.9);
+        text-align: center;
+        text-transform: none;
+        line-height: 20px;
+        left: 100%;
+        bottom: calc(100% + 5px);
+        width: 200px;
+        margin-left: -100px;
+        z-index: 1004;
+        strong {
+            font-weight: normal;
+        }
+    }
+    .tooltip-content::after {
+        content: '';
+        top: 100%;
+        left: 40px;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-top-color: $rose;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+}
+#order .order_detail .order_item_list .pack .tooltip {
+    .tooltip-content {
+        background: $rose;
+        color: $white;
+        padding: 10px;
+        line-height: 100%;
+        @include border-radius(0);
+        @include font-size(.9);
+        text-align: center;
+        text-transform: none;
+        line-height: 20px;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        margin-left: 0;
+        z-index: 1004;
+        strong {
+            font-weight: normal;
+        }
+    }
+    .tooltip-content::after {
+        display: none;
+    }
+}
+
+/*Table Size Details*/
+.right_panel .size-details_table{
+    .tooltip-content {
+        background: $plum;
+        color: $white;
+        padding: 10px;
+        line-height: 100%;
+        @include border-radius(5px);
+        @include font-size(.9);
+        text-align: center;
+        text-transform: none;
+        line-height: 20px;
+        left: -150px;
+        bottom: calc(100% - 10px);
+        width: 200px;
+        z-index: 1004;
+        strong {
+            font-weight: normal;
+        }
+    }
+    .tooltip-content::after {
+        content: '';
+        top: 100%;
+        left: 170px;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-top-color: $plum;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+}
+.right_panel .size-details_table .table .tbody li.td.actions .tooltip .tooltip-content{
+    background: $plum;
+    color: $white;
+    padding: 10px;
+    line-height: 100%;
+    @include border-radius(5px);
+    @include font-size(.9);
+    text-align: center;
+    text-transform: none;
+    line-height: 20px;
+    left: -50px;
+    bottom: calc(100% - 10px);
+    width: 200px;
+    z-index: 1004;
+    strong {
+        font-weight: normal;
+    }
+    &::after {
+        content: '';
+        top: 100%;
+        left: 170px;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-top-color: $plum;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+}
+
+.sort_button .tooltip > a{
+    display: block;
+    height: 100%;
+}
+
+/* BUYER BRAND LIST ICONS TOOLTIPS */
+ul.brands_list li figure figcaption .tooltip {
+
+    & > span {
+        line-height: 50px;
+    }
+
+    .tooltip-content {
+        background: $plum;
+        color: $white;
+        padding: 10px;
+        @include border-radius(5px);
+        @include font-size(.9);
+        text-align: center;
+        text-transform: none;
+        bottom: 50px;
+        left: -135px;
+        width: 300px;
+        z-index: 1004;
+    }
+    .tooltip-content::after {
+        content: '';
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-top-color: $plum;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+}
+
+.buyer_orders-list_table .order_number .tooltip .tooltip-content{
+    background: $rose;
+    &::after{
+        border-top-color: $rose;
+    }
+}
+

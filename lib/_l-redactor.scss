@@ -1,0 +1,150 @@
+/**
+ * @REDACTOR
+ * -------------------------
+ */
+
+ .redactor_toolbar{
+ 	margin: 0;
+     border: 1px solid darken($border,10%);
+ 	@include font;
+ 	@include box-shadow(0px,0px,0px,0px,$white);
+
+ 	 li a{
+ 	 	color: $txt;
+
+ 	 	&:hover{
+ 	 		background-color: $txt;
+ 	 		color: $white;
+ 	 	}
+ 	 }
+ }
+
+.redactor_editor{
+	min-height: 300px;
+    border: 1px solid darken($border,10%);
+    margin-top: -1px !important;
+}
+
+.redactor_dropdown{
+ 	 margin-top: -75px;
+ 	 @include font;
+
+ 	 a{
+ 		 color: $txt;
+ 		 @include font-size(1em);
+ 		 @include transition;
+ 	 }
+
+ 	 a:hover{
+ 	 	background-color: $border;
+ 	 }
+}
+
+
+/* =====================================
+  @ICONS
+===================================== */
+.re-icon{
+	position: relative;
+}
+.re-icon.re-styles.redactor-btn-image::before{
+	@include icons-o('\e99e'); 
+	@include font-size(0.8);
+	position: absolute;
+	line-height: 14px;
+	left: 0;
+	right: 0;
+	top: 9px;
+	text-align: center;
+}
+
+/* =====================================
+  @MODAL IMAGE
+===================================== */
+
+#redactor_modal_inner{
+
+	select,
+	input,
+	label{
+		@include font;
+		color: $txt;
+		margin-bottom: 15px;
+		clear: both;
+	}
+
+	select,
+	input[type="text"],
+	input[type="password"],input[type="email"],
+	textarea{
+		@include font-size(1.2);		
+		border: 2px solid $border;
+		height: 35px;
+		line-height: 35px;
+		@include box-shadow(0px,0px,0px,0px,$white);
+		@include font;
+		color: $txt;
+		margin-bottom: 15px;
+	}
+
+	label{
+		text-transform: uppercase;
+		margin-top: 15px !important;
+	}
+
+	input:focus,
+	textarea:focus{
+		@include box-shadow(0px,0px,0px,0px,$white)
+	}
+
+	#redactor_tabs a,
+	#redactor_tabs a.redactor_tabs_act{
+		background-color:lighten($txt, 20%);
+		color: $white !important;
+		text-transform: uppercase;
+		@include border-radius(3px);
+		border:none;
+		@include font;
+	} 
+
+	#redactor_tabs a.redactor_tabs_act{
+		background-color:$txt ;
+	}
+
+	#redactor_link_blank{
+		margin-right: 10px;
+		margin-top: 1px;
+		float: left;
+	}
+
+	footer button{
+		background-color: lighten($txt, 20%); 
+		color: $white;
+		@include font;
+		@include font-size(1.2);
+		text-transform: uppercase;
+		@include transition;
+	}
+
+	footer button:hover{
+		background-color: lighten($txt, 10%);
+		color: $white;
+	}
+
+	footer button.redactor_modal_action_btn{
+		background-color: $txt;
+	}
+
+	footer button.redactor_modal_action_btn:hover{
+		background-color: darken($txt, 5%);
+		@include opacity(1);
+	}
+
+	footer button.redactor_modal_delete_btn{
+		background-color: $bg;
+	}
+
+	footer button.redactor_modal_delete_btn:hover{
+		background-color: darken($bg, 5%);
+	}
+}

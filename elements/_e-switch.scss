@@ -1,0 +1,64 @@
+/* =====================================
+//------ SWITCH
+=====================================*/
+
+// **
+// @SWITCH
+// ------------------------
+
+
+.cmn-toggle {
+	position: absolute;
+	margin-left: -9999px;
+	visibility: hidden;
+}
+
+.cmn-toggle + label {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+input.cmn-toggle-round + label {
+	padding: 2px;
+	width: 90px;
+	height: 45px;
+    background-color: darken($bg, 3%);
+	border-radius: 100px;
+}
+
+input.cmn-toggle-round + label:before, input.cmn-toggle-round + label:after {
+	display: block;
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	bottom: 2px;
+	content: "";
+}
+
+input.cmn-toggle-round + label:before {
+	right: 1px;
+	border-radius: 50px;
+}
+
+input.cmn-toggle-round + label:after {
+	width: 40px;
+    height: 40px;
+    @include background-gradient(#fedf5d 0%,#fc8160 75%,'vertical');
+	border-radius: 100%;
+    margin-left: 45px;
+	transition: margin 0.4s;
+}
+
+input.cmn-toggle-round:checked + label:before {
+
+}
+
+input.cmn-toggle-round:checked + label:after {
+	margin-left: 0px;
+}

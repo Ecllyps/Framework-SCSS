@@ -1,0 +1,454 @@
+// **
+// @CONTAINERS
+// ------------------------
+
+@mixin container($width) {
+  max-width: $width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// **
+// @TEXTS
+// ------------------------
+
+@mixin hide-text {
+  overflow: hidden;
+  text-indent: -9000em;
+  display: block;
+}
+
+@mixin ellipsis {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin center_vertical($height) {
+  height: $height;
+  line-height: $height;
+  span {
+    width: 100%; /* largeur zone de texte */
+    vertical-align: middle;
+    display: inline-block;
+    line-height: normal; /* on rétablit le line-height */
+  }
+}
+
+/// Generates line-height values in both pixels and rems.
+/// @access public
+/// @param {Number} $height-value [12] - Height value
+/// @example scss - Usage
+///   .foo {
+///     @include line-height(16);
+///   }
+/// @example css - Result
+///   .foo {
+///     line-height: 16px;
+///     line-height: 1rem;
+///   }
+@mixin line-height($height-value: 12) {
+  line-height: $height-value * 1px; //fallback for old browsers
+  line-height: (1 / ($base-font-size / ($base-font-size * 0 + 1)) * $height-value * 1rem);
+}
+
+// **
+// @ICONS
+// ------------------------
+
+@mixin icons-o($icon) {
+  content: $icon;
+  font-family: 'Nucleo Outline';
+  speak: none;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font: normal normal normal;
+  text-transform: none;
+  font-weight: normal;
+}
+
+@mixin icons-g($icon) {
+  content: $icon;
+  font-family: 'Nucleo Glyph';
+  speak: none;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font: normal normal normal;
+  text-transform: none;
+  font-weight: normal;
+}
+
+@mixin icons-mini($icon) {
+  content: $icon;
+  font-family: 'Nucleo Mini';
+  speak: none;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font: normal normal normal;
+  text-transform: none;
+  font-weight: normal;
+}
+
+@mixin sprite($left:0,$top:0) {
+  background-image: url(../img/sprites.png);
+  background-repeat: no-repeat;
+  background-position: $left $top;
+}
+
+@mixin flags($left:0,$top:0) {
+  background-image: url(../images/sprite_flag.svg);
+  background-position: $left $top;
+  display: block;
+  height: 32px;
+  width: 32px;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+// **
+// @ANIMS
+// ------------------------
+
+@mixin delay($type:all,$time:0.4s,$effect:ease) {
+  -webkit-transition-property: $type;
+  -moz-transition-property: $type;
+  -o-transition-property: $type;
+  -ms-transition-property: $type;
+  transition-property: $type;
+  -moz-transition-delay: $time;
+  -o-transition-delay: $time;
+  -ms-transition-delay: $time;
+  transition-delay: $time;
+  -webkit-transition-timing-function: $effect;
+  -moz-transition-timing-function: $effect;
+  -o-transition-timing-function: $effect;
+  -ms-transition-timing-function: $effect;
+  transition-timing-function: $effect;
+}
+
+@mixin transition($type:all,$time:0.4s,$effect:ease) {
+  -webkit-transition: $type $time $effect;
+  -moz-transition: $type $time $effect;
+  -ms-transition: $type $time $effect;
+  -o-transition: $type $time $effect;
+  transition: $type $time $effect;
+}
+
+@mixin transform($type) {
+  -webkit-transform: $type;
+  -moz-transform: $type;
+  -ms-transform: $type;
+  -o-transform: $type;
+  transform: $type;
+}
+
+@mixin origin($origin) {
+  -webkit-transform-origin: $origin;
+  -moz-transform-origin: $origin;
+  -ms-transform-origin: $origin;
+  -o-transform-origin: $origin;
+  transform-origin: $origin;
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// **
+// @OPACITY
+// ------------------------
+
+/// Given an opacity value, generates that value as well as a way to display that opacity value in Internet Explorer 8 and 9.
+/// @access public
+/// @param {Float} $opacity - Opacity
+/// @example scss - Usage
+///   .foo {
+///     @include opacity(0.5);
+///   }
+/// @example css - Result
+///   .foo {
+///     opacity: 0.5;
+///     filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#50)";
+///   }
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100})";
+}
+
+@mixin transparent($color, $alpha) {
+  $rgba: rgba($color, $alpha);
+  $ie-hex-str: ie-hex-str($rgba);
+  background-color: transparent;
+  background-color: $rgba;
+  // Sass transforme lui-même le rgba en hexadécimal pour IE
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str}, endColorstr=#{$ie-hex-str});
+  zoom: 1;
+}
+
+@mixin br-transparent($color, $alpha, $size) {
+  $rgba: rgba($color, $alpha);
+  border: $size solid $rgba;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+
+// **
+// @BLOCKS
+// ------------------------
+
+@mixin clearfix() {
+  & {
+    *zoom: 1;
+  }
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/// Shorthandizes position declarations.
+/// @access public
+/// @param {String} $type - Either `relative`, `absolute` or `fixed`
+/// @param {Length} $left [null] - Left offset
+/// @param {Length} $right [null] - Right offset
+/// @param {Length} $top [null] - Top offset
+/// @param {Length} $bottom [null] - Bottom offset
+/// @example scss - Usage
+///   .foo {
+///     @include position(absolute, $top: 10px, $left: 10px);
+///   }
+/// @example css - Result
+///   .foo {
+///     position: absolute;
+///     left: 10px;
+///     top: 10px;
+///   }
+@mixin position($type, $top: null, $right: null, $bottom: null, $left: null) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+// **
+// @FORMS
+// ------------------------
+
+@mixin placeholder($color : $txt) {
+
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-style: italic;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: $color;
+    font-style: italic;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: $color;
+    font-style: italic;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: $color;
+    font-style: italic;
+  }
+}
+
+// **
+// @CHECKBOX
+// ------------------------
+
+@mixin checkbox($color:$orange) {
+  input[type="checkbox"] {
+    display: none;
+  }
+  input[type="checkbox"] + label span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: $white;
+    background-image: none;
+    border: 1px solid $border;
+    border-radius: 2px;
+    z-index: 10;
+    @include transition;
+    position: relative;
+    &::before {
+      @include icons-g('>');
+      @include opacity(0);
+      @include transition(all, .8s, ease);
+      color: $white;
+      @include font-size(17);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+      text-align: center;
+    }
+  }
+
+  input[type="checkbox"]:checked + label span {
+    border-color: $color;
+    &::before {
+      @include opacity(1);
+    }
+  }
+}
+
+@mixin radio($color:$orange) {
+  input[type="radio"] {
+    display: none;
+  }
+
+  input[type="radio"] + label span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: $white;
+    background-image: none;
+    border: 1px solid $border;
+    z-index: 10;
+    @include transition;
+    position: relative;
+    &::before {
+      content: '';
+      background-color: $color;
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      @include opacity(0);
+      @include transition(all, .8s, ease);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      @include transform(translate(-50%, -50%));
+      z-index: 10;
+    }
+  }
+
+  input[type="radio"]:checked + label span {
+    border-color: $color;
+    &::before {
+      @include opacity(1);
+    }
+  }
+}
+
+@mixin check_no-icons($color) {
+  input[type="checkbox"], input[type="radio"] {
+    display: none;
+  }
+
+  input[type="checkbox"] + label span, input[type="radio"] + label span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: none;
+    background-image: none;
+    border: 1px solid $border;
+    float: left;
+    z-index: 10;
+    position: relative;
+    @include transition(all, .4s, ease);
+    &::before {
+      content: '';
+      @include opacity(0);
+      @include transition(all, .8s, ease);
+      background-color: $color;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 2px;
+      z-index: 10;
+      border-radius: 3px;
+    }
+  }
+
+  input[type="checkbox"]:checked + label span, input[type="radio"]:checked + label span {
+    &::before {
+      @include opacity(1);
+    }
+  }
+}
+
+// **
+// @SHADOW
+// ------------------------
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $size $color;
+    -moz-box-shadow: inset $top $left $blur $size $color;
+    box-shadow: inset $top $left $blur $size $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $size $color;
+    -moz-box-shadow: $top $left $blur $size $color;
+    box-shadow: $top $left $blur $size $color;
+  }
+}
+
+/// Background gradient helper
+/// @access public
+/// @param {Color} $start-color - Start color
+/// @param {Color} $end-color - End color
+/// @param {String} $orientation - Type of gradient, either `vertical`, `horizontal` or `radial`
+/// @example scss - Usage
+///   .foo {
+///     @include background-gradient(red, black, 'vertical');
+///   }
+/// @example css - Result
+///   .foo {
+///     background: -webkit-linear-gradient(top, red, black);
+///     background: linear-gradient(to bottom, red, black);
+///   }
+@mixin background-gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+
+  @if $orientation == 'vertical' {
+    background: -webkit-linear-gradient(top, $start-color, $end-color);
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == 'horizontal' {
+    background: -webkit-linear-gradient(left, $start-color, $end-color);
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else {
+    background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}
+
+// **
+// @SPECS
+// ------------------------

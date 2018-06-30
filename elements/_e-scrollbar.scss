@@ -1,0 +1,42 @@
+/* =====================================
+//------ SCROLLBAR
+=====================================*/
+
+// **
+// @SCROLLBAR
+// ------------------------
+.mCustomScrollBox.mCSB_horizontal.mCSB_inside>.mCSB_container{
+    margin-bottom: 10px;
+}
+
+.mCustomScrollBox.mCSB_horizontal{
+    height: auto;
+}
+.mCS-3d-dark.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-3d.mCSB_scrollTools .mCSB_draggerRail{
+    background-color: $bg_elements;
+}
+
+.container{
+    .mCSB_scrollTools{
+        top: 5px;
+        bottom: 5px;
+    }
+
+    .mCS-3d-dark.mCSB_scrollTools .mCSB_draggerRail,
+    .mCS-3d.mCSB_scrollTools .mCSB_draggerRail{
+        box-shadow: none;
+    }
+
+    .mCS-3d-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+    .mCS-3d-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
+    .mCS-3d-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+    .mCS-3d-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+    .mCS-3d.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+    .mCS-3d.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
+    .mCS-3d.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+    .mCS-3d.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
+        background-image: none;
+        background-color: $txt;
+    }
+}

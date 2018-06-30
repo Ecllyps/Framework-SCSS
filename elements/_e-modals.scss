@@ -1,0 +1,179 @@
+/* =====================================================================================================================
+//----- MODAL EFFETS
+//----- MODAL GEN
+=====================================================================================================================*/
+
+// **
+// @MODALS EFFECTS
+// ------------------------
+
+.md-effect .md-content {
+    -webkit-transform: translateY(-200%) translateX(-50%);
+    -moz-transform: translateY(-200%) translateX(-50%);
+    -ms-transform: translateY(-200%) translateX(-50%);
+    transform: translateY(-200%) translateX(-50%);
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+    opacity: 0;
+}
+.md-show.md-effect .md-content {
+    -webkit-transform: translateY(0%) translateX(-50%);
+    -moz-transform: translateY(0%) translateX(-50%);
+    -ms-transform: translateY(0%) translateX(-50%);
+    transform: translateY(0%) translateX(-50%);
+    opacity: 1;
+}
+
+// **
+// @MODALS GEN
+// ------------------------
+.md-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: -50px;
+    bottom: 0;
+    padding-right: 50px;
+    z-index: 2000;
+    visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.md-show {
+	visibility: visible;
+    overflow-y: scroll;
+}
+.md-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1600;
+}
+.md-opacity_layer {
+	position: fixed;
+	width: 100%;
+	min-height: 100%;
+	visibility: hidden;
+	top: 0;
+	left: 0;
+	z-index: 1600;
+	opacity: 0;
+	@include transparent($black,0.9);
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.md-show ~ .md-opacity_layer {
+	opacity: 1;
+	visibility: visible;
+}
+.modal-content{
+    padding: 0 20px;
+}
+
+/* Content styles */
+.md-content {
+    position: relative;
+    top: 50px;
+    left: 50%;
+    width: 50%;
+    max-width: 630px;
+    min-width: 320px;
+    height: auto;
+    background: $white;
+    margin: 0 auto 50px 0;
+    border-radius: 5px;
+    color: $txt;
+    z-index: 2000;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.modal_content{
+    background-color: $grey_ll;
+    padding: 20px 20px 100px 20px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    @include clearfix;
+}
+.modal_content{
+    .simple_input,
+    .select,
+    label{
+        margin-bottom: 20px;
+    }
+}
+
+//Alert
+.modal_content.alert_txt p{
+    text-align: center;
+    text-transform: uppercase;
+    color: $rose;
+}
+.modal_content.alert_txt i{
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+    font-style: normal;
+}
+
+/*Modal header*/
+.modal_header{
+    border-bottom: 1px solid $border;
+    padding: 0 50px;
+    text-align: center;
+    h3{
+        margin: 0;
+        padding: 0.4em;
+        text-align: center;
+        @include font-size(2);
+        color: darken($txt, 10%);
+    }
+    p{
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+}
+
+// Modals Buttons
+.md-content .modal_buttons{
+    background-color: $grey_ll;
+	text-align: center;
+	padding: 2em 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    border-radius: 5px;
+    li{
+        display: inline-block;
+        margin: 0 20px;
+    }
+	li a{
+		border: 0;
+		background-color: $rose;
+		color: $white;
+		@include border-radius(3px);
+        height: 50px;
+        line-height: 50px;
+		text-transform: uppercase;
+        font-weight: 400;
+        display: inline-block;
+        padding: 0px 20px;
+        width: 150px;
+	}
+
+	li a.md-annul{
+		background-color: darken($border, 10%);
+	}
+}

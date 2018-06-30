@@ -1,0 +1,110 @@
+/* =====================================================================================================================
+//------- OVERLAY GEN
+//------- OVERLAY ANIM
+//------- OVERLAY MENU
+//------- OVERLAY NEW CLIENT (TAKE ORDER)
+//------- OVERLAY PRINTS
+=====================================================================================================================*/
+
+/**
+ * @OVERLAY GEN
+ * -------------------------
+ */
+
+.overlay_open,
+.overlay-open{
+    overflow: hidden;
+}
+
+/* Overlay style */
+.overlay {
+    position: fixed;
+    width: calc(100% + 50px);
+    padding-right: 50px;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    overflow-y: scroll;
+    background-color: $white;
+}
+
+/* Overlay Closing cross */
+.overlay .overlay-close {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 20px + 50px;
+    top: 20px;
+    overflow: hidden;
+    border: none;
+    background-color: transparent;
+    @include font-size(40px);
+    &::before {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        right: 0;
+        bottom: 0;
+        @include icons-g($cross--g);
+        color: lighten($txt, 30%)
+    }
+}
+
+
+
+/**
+ * @OVERLAY ANIM
+ * -------------------------
+ */
+
+/* Effects Slidedown*/
+.overlay-slidedown {
+    visibility: hidden;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+    -webkit-transition: -webkit-transform 0.4s ease-in-out, visibility 0s 0.4s;
+    transition: transform 0.4s ease-in-out, visibility 0s 0.4s;
+}
+.overlay-slidedown.open {
+    visibility: visible;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+    -webkit-transition: -webkit-transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
+
+}
+
+/* Effects Simple genie*/
+.overlay-simplegenie {
+    visibility: hidden;
+    -webkit-transform: translateY(60%) scale(0);
+    transform: translateY(60%) scale(0);
+    -webkit-transition: -webkit-transform 0.4s, visibility 0s 0.4s;
+    transition: transform 0.4s, visibility 0s 0.4s;
+}
+.overlay-simplegenie.open {
+    visibility: visible;
+    -webkit-transform: translateY(0%) scale(1);
+    transform: translateY(0%) scale(1);
+    -webkit-transition: -webkit-transform 0.4s;
+    transition: transform 0.4s;
+}
+
+
+/**
+ * @OVERLAY GEN
+ * -------------------------
+ */
+
+.overlay_content{
+    width: 1024px;
+    height: 668px;
+    margin: 100px auto 0;
+    padding-top: 50px;
+
+    h3{
+        text-align: center;
+        @include font-size(30px)
+    }
+}
+

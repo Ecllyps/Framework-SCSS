@@ -1,0 +1,91 @@
+// **
+// @GEN
+// ------------------------
+
+html, body {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+body{
+ 	background-color: $white;
+ 	color:$txt;
+ 	@include font-size(18);
+  font-family: $font;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6{
+ }
+
+h1,h2,h3{
+  @include font-size(18);
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-style: italic;
+  text-transform: uppercase;
+  color: $grey;
+}
+
+h1{
+  @include font-size(64);
+}
+
+h2{
+  @include font-size(24);
+}
+
+p{
+  @include font-size(18);
+  color: $grey;
+}
+
+ a,
+ a:hover,
+ a:focus{
+ 	text-decoration: none;
+ }
+
+ a{
+     color: $black;
+ }
+
+ fieldset{
+ 	border:none;
+ 	padding:0;
+ 	margin: 0;
+ }
+
+input{
+    @include placeholder;
+    font-family: $font;
+}
+
+label {
+     display: inline-block;
+     max-width: 100%;
+ }
+
+ .row{
+ 	max-width: 100%;
+     @include clearfix;
+ }
+
+ .hide{
+    display: none;
+ }
+
+ul{
+ 	padding: 0;
+ 	margin: 0;
+ 	list-style: none;
+}
+
+figure{
+	margin: 0;
+}
