@@ -2,4 +2,3 @@
 console.log('Look at app/js/main.js');
 
 alert( 'Hello, world!' );
-  
