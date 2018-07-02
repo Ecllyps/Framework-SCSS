@@ -1,4 +1,5 @@
 /* jshint devel:true */
 console.log('Look at app/js/main.js');
 
-alert( 'Hello, world!' );
+alert( 'Hello, Ludo!' );
+alert( 'Hello, Mickael!' );
