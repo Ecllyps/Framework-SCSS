@@ -4,7 +4,10 @@
     "node": ">=0.12.0"
   },
   "browserify": {
-    "transform": [ "babelify", "envify" ]
+    "transform": [
+      "babelify",
+      "envify"
+    ]
   },
   "scripts": {
     "start": "gulp serve",
