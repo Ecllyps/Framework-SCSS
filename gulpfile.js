@@ -13,9 +13,7 @@ gulp.task('copyHtml', function() {
 gulp.task('buildJs', function() {
   return gulp.src('app/js/**/*.js')
     .pipe(sourcemaps.init())
-      .pipe(concat('main.js'))
-      //only uglify if gulp is ran with '--type production'
-      .pipe(gutil.env.type === 'production' ? uglify() : gutil.noop()) 
+    .pipe(concat('main.js'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/js/'));
 });
