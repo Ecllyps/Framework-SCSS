@@ -1,34 +1,38 @@
 @charset 'utf-8';
 
+/* =====================================
+  @BASE
+===================================== */
+
 @import 'base/_b-normalize';
 @import 'base/_b-fonts';
+//@import 'base/_b-icons';
+@import 'base/_b-colors';
 
 /* =====================================
   @ASSETS
 ===================================== */
-@import 'assets/_a-mixins';
-@import 'assets/_a-keyframes';
+@import 'utils/_u-mixins';
+@import 'utils/_u-keyframes';
 
 /* =====================================
-  @BASE
+  @LAYOUT
 ===================================== */
-@import 'base/_b-media-queries';
-@import 'base/_b-variables';
-//@import 'base/_b-icons';
-@import 'base/_b-colors';
-@import 'base/_b-class-helper';
-@import 'base/_b-layout'; 
+@import 'layout/_l-class-helper';
+@import 'layout/_l-variables';
+@import 'layout/_l-media-queries'; 
+@import 'layout/_l-layout'; 
 
 
 /* =====================================
-  @COMPONENTS
+  @PAGES
 ===================================== */
 
 /*Home*/
 
 
 /* =====================================
-  @MODULES
+  @COMPONENTS
 ===================================== */
 
 
@@ -52,10 +56,10 @@
 
 
 /* =====================================
-  @LIB
+  @VENDORS
 ===================================== */
-//@import 'lib/_l-chosen';
-//@import 'lib/_l-redactor';
+//@import 'vendors/_v-chosen';
+//@import 'vendors/_v-redactor';
 
 
 
